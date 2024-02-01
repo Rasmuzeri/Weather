@@ -4,7 +4,7 @@ export const MainWrapper = styled.div`
     height: 100vh;
 
     .container {
-        background-color: rgba(255, 255, 255, 0.2);
+        background-color: rgba(255, 255, 255, 0.15);
         border-radius: 12px;
         padding: 2rem;
         position: absolute;
@@ -100,8 +100,8 @@ export const MainWrapper = styled.div`
         font-size: 50px;
     }
 
-    .ok,
-    .ok2 {
+    .bottomInfoValue,
+    .bottomInfoDescription {
         margin: 0;
     }
 `

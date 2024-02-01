@@ -47,6 +47,7 @@ const weatherChanger = (weatherMain?: string): string => {
     const defaultCity = "Helsinki";
     const [city, setCity] = useState<string>(defaultCity);
     const [inputText, setInputText] = useState<string>(defaultCity);
+    const [backgroundImage, setBackgroundImage] = useState<string>("");
   
     const { data, isLoading, isError, error } = useQuery<WeatherDataProps>({
       queryKey: ["weatherData", city],
@@ -54,10 +55,16 @@ const weatherChanger = (weatherMain?: string): string => {
         Axios.get(`${APIendpoint}weather?q=${city}&appid=${APIkey}&units=metric`)
             .then(res => res.data)
     });
+
+    useEffect(() => {
+        if (data) {
+          setBackgroundImage(`url(${weatherChanger(data.weather[0]?.main)})`);
+        }
+      }, [data]);    
   
     useEffect(() => {
-      setCity(defaultCity);
-    }, []);
+        setCity(defaultCity);
+      }, [defaultCity]);       
   
     const handleSearch = () => {
       // Update the city with the user-inputted value
@@ -65,26 +72,30 @@ const weatherChanger = (weatherMain?: string): string => {
     };
     
     if (isLoading) {
-      return <h1>Loading...</h1>;
+      return (
+        <div style={{ backgroundImage: backgroundImage }}>
+        </div>
+      );
     }
   
     if (isError || !data) {
-      return <h1>Error: {error?.message}</h1>;
+      return <h1>Tällaista kaupunkia ei löytynyt: {error?.message}</h1>;
     }
   
     const { name, main, visibility, weather, wind } = data;
 
     return (
         <MainWrapper style={{ 
-            backgroundImage: `url(${weatherChanger(weather[0]?.main)})`,
-            backgroundSize: 'cover'
+            backgroundImage: backgroundImage,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
         }}>
             <div className="container">
                 <div className="searchArea">
                     <input
                         onChange={(event) => setInputText(event.target.value)}
                         className="textSearch" type="text"
-                        placeholder="Esim. Tampere tai Manchester"
+                        placeholder="Esim. tampere tai stockholm"
                     />
                     <div className="searchCircle">
                         <AiOutlineSearch onClick={handleSearch} className="searchIcon"/>
@@ -104,16 +115,16 @@ const weatherChanger = (weatherMain?: string): string => {
                         <div className="feelsLike">
                             <FaShirt className="feelsLikeIcon"/>
                             <div className="feelsLikeInfo">
-                                <h1 className="ok">{Math.round(main.feels_like)}&nbsp;°C</h1>
-                                <p className="ok2">Tuntuu&nbsp;kuin</p>
+                                <h1 className="bottomInfoValue">{Math.round(main.feels_like)}&nbsp;°C</h1>
+                                <p className="bottomInfoDescription">Tuntuu&nbsp;kuin</p>
                             </div>
                         </div>
 
                         <div className="humidity">
                             <WiHumidity className="humidityIcon"/>
                             <div className="humidityInfo">
-                                <h1 className="ok">{main.humidity}&nbsp;%</h1>
-                                <p className="ok2">Ilmankosteus</p>
+                                <h1 className="bottomInfoValue">{main.humidity}&nbsp;%</h1>
+                                <p className="bottomInfoDescription">Ilmankosteus</p>
                             </div>
                         </div>
                     </div>
@@ -123,17 +134,17 @@ const weatherChanger = (weatherMain?: string): string => {
                             <MdOutlineVisibility className="visibilityIcon"/>
                             <div className="visibilityInfo">
                                 {visibility < 10000 
-                                    ? <h1 className="ok">{visibility/1000}&nbsp;km</h1>
-                                    : <h1 className="ok">{'>'}{visibility/1000}&nbsp;km</h1>}
-                                <p className="ok2">Näkyvyys</p>
+                                    ? <h1 className="bottomInfoValue">{visibility/1000}&nbsp;km</h1>
+                                    : <h1 className="bottomInfoValue">{'>'}{visibility/1000}&nbsp;km</h1>}
+                                <p className="bottomInfoDescription">Näkyvyys</p>
                             </div>
                         </div>
 
                         <div className="wind">
                             <FaWind className="windIcon"/>
                             <div className="windInfo">
-                                <h1 className="ok">{Math.round(wind.speed*3.6)}&nbsp;km/h</h1>
-                                <p className="ok2">Tuulen&nbsp;nopeus</p>
+                                <h1 className="bottomInfoValue">{Math.round(wind.speed*3.6)}&nbsp;km/h</h1>
+                                <p className="bottomInfoDescription">Tuulen&nbsp;nopeus</p>
                             </div>
                         </div>
                     </div>
