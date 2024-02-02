@@ -4,6 +4,7 @@ import Axios from "axios";
 import { MainWrapper } from "./weather.module";
 import { WeatherContainer } from "../components/WeatherContainer";
 import { mainStylis } from "styled-components/dist/models/StyleSheetManager";
+import { WeatherImagePicker } from "../components/WeatherImagePicker";
 
 interface WeatherDataProps {
     name: string;
@@ -20,23 +21,6 @@ interface WeatherDataProps {
         speed: number;
     };
 }
-
-const weatherChanger = (weatherMain?: string): string => {
-    const filePath = "./images/";
-    const weather = weatherMain || "Mist"; // default to Mist if main is undefined
-  
-    const weatherImages: { [key: string]: string } = {
-      Rain: "rain.jpg",
-      Clear: "clear.jpg",
-      Thunderstorm: "thunderstorm.jpg",
-      Drizzle: "rain.jpg",
-      Clouds: "clouds.jpg",
-      Snow: "snow.jpg",
-      Mist: "mist.jpg",
-    };
-  
-    return filePath + (weatherImages[weather] || weatherImages.Mist);
-  };
   
   export const DisplayWeather = () => {
     const APIkey = "63e65b8f6ddd0c32e0eddc749a55f238";
@@ -55,7 +39,7 @@ const weatherChanger = (weatherMain?: string): string => {
 
     useEffect(() => {
         if (data) {
-          setBackgroundImage(`url(${weatherChanger(data.weather[0]?.main)})`);
+          setBackgroundImage(`url(${WeatherImagePicker(data.weather[0]?.main)})`);
         }
       }, [data]);    
   
