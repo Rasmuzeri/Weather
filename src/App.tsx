@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import './App.css';
-import DisplayWeather from './components/DisplayWeather';
+import "./App.css";
+import DisplayWeather from "./components/DisplayWeather";
 
 function App() {
   const client = new QueryClient();

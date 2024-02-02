@@ -2,11 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Axios from "axios";
 import { MainWrapper } from "./weather.module";
-import { AiOutlineSearch } from "react-icons/ai";
-import { FaShirt } from "react-icons/fa6";
-import { WiHumidity } from "react-icons/wi";
-import { MdOutlineVisibility } from "react-icons/md";
-import { FaWind } from "react-icons/fa";
+import { WeatherContainer } from "../components/WeatherContainer";
+import { mainStylis } from "styled-components/dist/models/StyleSheetManager";
 
 interface WeatherDataProps {
     name: string;
@@ -90,66 +87,17 @@ const weatherChanger = (weatherMain?: string): string => {
             backgroundSize: 'cover',
             backgroundPosition: 'center'
         }}>
-            <div className="container">
-                <div className="searchArea">
-                    <input
-                        onChange={(event) => setInputText(event.target.value)}
-                        className="textSearch" type="text"
-                        placeholder="Esim. tampere tai stockholm"
-                    />
-                    <div className="searchCircle">
-                        <AiOutlineSearch onClick={handleSearch} className="searchIcon"/>
-                    </div>
-                </div>
-
-                <div className="weatherArea">
-                    <h1>{name}</h1>
-                    <div className="icon">
-                    </div>
-                    <h1 className="mainTemp">{Math.round(main.temp)} °C</h1>
-                    <h2>{weather[0].main}</h2>
-                </div>
-
-                <div className="bottomInfoArea">
-                    <div className="upperInfo">
-                        <div className="feelsLike">
-                            <FaShirt className="feelsLikeIcon"/>
-                            <div className="feelsLikeInfo">
-                                <h1 className="bottomInfoValue">{Math.round(main.feels_like)}&nbsp;°C</h1>
-                                <p className="bottomInfoDescription">Tuntuu&nbsp;kuin</p>
-                            </div>
-                        </div>
-
-                        <div className="humidity">
-                            <WiHumidity className="humidityIcon"/>
-                            <div className="humidityInfo">
-                                <h1 className="bottomInfoValue">{main.humidity}&nbsp;%</h1>
-                                <p className="bottomInfoDescription">Ilmankosteus</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="lowerInfo">
-                        <div className="visibility">
-                            <MdOutlineVisibility className="visibilityIcon"/>
-                            <div className="visibilityInfo">
-                                {visibility < 10000 
-                                    ? <h1 className="bottomInfoValue">{visibility/1000}&nbsp;km</h1>
-                                    : <h1 className="bottomInfoValue">{'>'}{visibility/1000}&nbsp;km</h1>}
-                                <p className="bottomInfoDescription">Näkyvyys</p>
-                            </div>
-                        </div>
-
-                        <div className="wind">
-                            <FaWind className="windIcon"/>
-                            <div className="windInfo">
-                                <h1 className="bottomInfoValue">{Math.round(wind.speed*3.6)}&nbsp;km/h</h1>
-                                <p className="bottomInfoDescription">Tuulen&nbsp;nopeus</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <WeatherContainer
+                name={name}
+                feelsLike = {main.feels_like}
+                humidity = {main.humidity}
+                temp = {main.temp}
+                weatherType={weather[0].main}
+                visibility={visibility}
+                windSpeed={wind.speed}
+                handleSearch={handleSearch}
+                setInputText={setInputText}
+            />
         </MainWrapper>
     );
 }
