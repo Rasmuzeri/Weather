@@ -30,7 +30,7 @@ export const WeatherContainer: React.FC<WeatherDataProps> = ({
   setInputText,
 }) => {
   return (
-    <div className="container">
+    <div className="container" id="weatherContainer">
         <div className="searchArea">
             <input
                 onChange={(event) => setInputText(event.target.value)}

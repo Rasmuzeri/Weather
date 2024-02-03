@@ -5,6 +5,7 @@ import { MainWrapper } from "./weather.module";
 import { WeatherContainer } from "../components/WeatherContainer";
 import { mainStylis } from "styled-components/dist/models/StyleSheetManager";
 import { WeatherImagePicker } from "../components/WeatherImagePicker";
+import { NewsContainer } from "./NewsContainer";
 
 interface WeatherDataProps {
     name: string;
@@ -82,6 +83,8 @@ interface WeatherDataProps {
                 handleSearch={handleSearch}
                 setInputText={setInputText}
             />
+
+            <NewsContainer />
         </MainWrapper>
     );
 }

@@ -8,10 +8,18 @@ export const MainWrapper = styled.div`
         border-radius: 12px;
         padding: 2rem;
         position: absolute;
-        top: 25%;
-        left: 10%;
         box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
         backdrop-filter:blur(10px);
+    }
+
+    #weatherContainer {
+        top: 25%;
+        left: 10%;
+    }
+
+    #newsContainer {
+        top: 25%;
+        right: 25%;
     }
 
     .searchArea {
