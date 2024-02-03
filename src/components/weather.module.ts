@@ -19,7 +19,14 @@ export const MainWrapper = styled.div`
 
     #newsContainer {
         top: 25%;
-        right: 25%;
+        right: 10%;
+        overflow: auto;
+        width: 500px;
+        height: 600px;
+    }
+
+    p {
+        font-size: 20px;
     }
 
     .searchArea {

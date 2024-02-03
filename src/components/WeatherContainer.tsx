@@ -84,7 +84,7 @@ export const WeatherContainer: React.FC<WeatherDataProps> = ({
                     <FaWind className="windIcon"/>
                     <div className="windInfo">
                         <h1 className="bottomInfoValue">{Math.round(windSpeed*3.6)}&nbsp;km/h</h1>
-                        <p className="bottomInfoDescription">Tuulen&nbsp;nopeus</p>
+                        <p className="bottomInfoDescription">&nbsp;Tuulen&nbsp;nopeus</p>
                     </div>
                 </div>
             </div>

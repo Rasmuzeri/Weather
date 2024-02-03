@@ -32,12 +32,14 @@ export const NewsContainer = () => {
 
   return (
     <div className="container" id="newsContainer">
+      <h2>Sääuutisia Yleltä</h2>
       {data.map((n) => (
         <div key={n.title}>
-          <p>Title: {n.title}</p>
-          <p>Date: {n.date}</p>
-          <p>Category: {n.category}</p>
-          <p>Link: {n.link}</p>
+          <a href={n.link}>
+            <p>{n.title}</p>
+          </a>
+          <p>Julkaistu: {n.date}</p>
+          <p>Kategoria: {n.category}</p>
           <hr />
         </div>
       ))}
