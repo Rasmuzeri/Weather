@@ -44,11 +44,11 @@ Use the latest NPM
 
 These resources were also used
 
-* [Thunderstorm picture - image by Freepik]("https://www.freepik.com/free-photo/weather-effects-composition_33609881.htm#query=thunderstorm&position=44&from_view=search&track=sph&uuid=d361e713-0313-49e6-94ef-32e39681eaba")
-* [Snow picture - image by Montypeter]("https://www.freepik.com/free-photo/frozen-plants-field_1234255.htm")
-* [Mist picture - image by Vecstock]("https://www.freepik.com/free-photo/mountain-peak-back-lit-by-sunrise-tranquil-scene-generated-by-ai_41318329.htm")
-* [Cloud picture - image by Evening_tao]("https://www.freepik.com/free-photo/black-rain-abstract-dark-power_1046114.htm")
-* [Clear sky picture - image by Rawpixel.com]("https://www.freepik.com/free-photo/clouds-sky_3075231.htm")
+* [Thunderstorm picture - image by Freepik](https://www.freepik.com/free-photo/weather-effects-composition_33609881.htm#query=thunderstorm&position=44&from_view=search&track=sph&uuid=d361e713-0313-49e6-94ef-32e39681eaba)
+* [Snow picture - image by Montypeter](https://www.freepik.com/free-photo/frozen-plants-field_1234255.htm)
+* [Mist picture - image by Vecstock](https://www.freepik.com/free-photo/mountain-peak-back-lit-by-sunrise-tranquil-scene-generated-by-ai_41318329.htm)
+* [Cloud picture - image by Evening_tao](https://www.freepik.com/free-photo/black-rain-abstract-dark-power_1046114.htm)
+* [Clear sky picture - image by Rawpixel.com](https://www.freepik.com/free-photo/clouds-sky_3075231.htm)
 * [React Icons](https://react-icons.github.io/react-icons/search)
 
 
