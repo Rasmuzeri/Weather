@@ -18,6 +18,16 @@ interface WeatherDataProps {
     setInputText: (text: string) => void;
 }
 
+const weatherTranslations: { [key: string]: string } = {
+    Rain: "Sadetta",
+    Clear: "Selkeää",
+    Thunderstorm: "Ukkosta",
+    Drizzle: "Tihkusadetta",
+    Clouds: "Pilvistä",
+    Snow: "Lumisadetta",
+    Mist: "Sumua"
+  };
+  
 export const WeatherContainer: React.FC<WeatherDataProps> = ({
   name,
   feelsLike,
@@ -47,7 +57,7 @@ export const WeatherContainer: React.FC<WeatherDataProps> = ({
             <div className="icon">
             </div>
             <h1 className="mainTemp">{Math.round(temp)} °C</h1>
-            <h2>{weatherType}</h2>
+            <h2>{weatherTranslations[weatherType]}</h2>
         </div>
 
         <div className="bottomInfoArea">

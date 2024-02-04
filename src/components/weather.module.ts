@@ -17,6 +17,9 @@ export const MainWrapper = styled.div`
 
     a {
         text-decoration: none;
+        :hover {
+            color: rgb(72,72,72);
+        }
     }
 
     a p {
@@ -124,9 +127,11 @@ export const MainWrapper = styled.div`
         font-size: 3rem;
     }
 
-    .searchCircle:hover {
-        cursor: pointer;
-        color: dimgray;
+    .searchCircle {
+        :hover {
+            cursor: pointer;
+            color: dimgray;
+        }
     }
 
     .searchIcon {

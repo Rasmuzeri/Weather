@@ -18,7 +18,10 @@ const puppeteer_1 = __importDefault(require("puppeteer"));
 const app = (0, express_1.default)();
 const port = 8080;
 const fetchData = () => __awaiter(void 0, void 0, void 0, function* () {
-    const browser = yield puppeteer_1.default.launch({ headless: "new" });
+    const browser = yield puppeteer_1.default.launch({
+        headless: "new",
+        args: ["--no-sandbox"]
+    });
     const page = yield browser.newPage();
     yield page.goto("https://yle.fi/t/18-215833/fi");
     yield page.click(`button[aria-label="Vain välttämättömät"]`);

@@ -34,7 +34,7 @@ export const NewsContainer = () => {
       <h2>Sääuutisia Yleltä</h2>
       {data.map((n) => (
         <div key={n.title}>
-          <a href={n.link} target="_blank">
+          <a href={n.link} target="_blank" rel="noopener noreferrer">
             <p>{n.title}</p>
           </a>
           <p>Julkaistu: {n.date}</p>

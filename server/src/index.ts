@@ -5,8 +5,19 @@ import puppeteer from "puppeteer";
 const app: Application = express();
 const port: number = 8080;
 
-const fetchData = async () => {
-  const browser = await puppeteer.launch({ headless: "new" });
+type News = {
+  title: string;
+  date: string;
+  category: string;
+  link: string;
+};
+
+const fetchData = async (): Promise<News[]> => {
+  const browser = await puppeteer.launch({
+    headless: "new",
+    args: ["--no-sandbox"]
+  });
+    
   const page = await browser.newPage();
   await page.goto("https://yle.fi/t/18-215833/fi");
   await page.click(`button[aria-label="Vain välttämättömät"]`);
@@ -15,7 +26,7 @@ const fetchData = async () => {
   const mainContainerSelector = '.GenericStory__Lefty-sc-3c19415d-4.jzOvCH';
 
   // Extract information from all news articles in the selected container
-  const newsList: any[] = await page.$$eval(mainContainerSelector, (newsElements: Element[]) => {
+  const newsList: News[] = await page.$$eval(mainContainerSelector, (newsElements: Element[]) => {
     return newsElements.map((newsElement) => {
       const newsTitle = newsElement.querySelector('.CardHeading__Heading-sc-c806b1c0-0.edmqUa a')?.textContent || '';
       const newsDate = newsElement.querySelector('.DateTime___StyledTime-sc-be5c43e0-0.JyKhN')?.textContent || '';

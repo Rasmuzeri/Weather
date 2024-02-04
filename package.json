@@ -2,6 +2,7 @@
   "name": "weather",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://127.0.0.1:8080",  
   "dependencies": {
     "@tanstack/react-query": "^5.18.0",
     "@testing-library/jest-dom": "^5.17.0",
@@ -20,13 +21,17 @@
     "typescript": "^5.3.3",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:8080",
+  
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -45,4 +50,5 @@
       "last 1 safari version"
     ]
   }
+  
 }
