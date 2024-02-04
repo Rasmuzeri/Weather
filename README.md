@@ -56,5 +56,3 @@ These resources were also used
 ![ScreenShot](https://i.postimg.cc/3xTs29L9/rain.png)
 ![ScreenShot](https://i.postimg.cc/J79VzRZf/clouds.png)
 ![ScreenShot](https://i.postimg.cc/y6JCKDgh/clear.png)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
