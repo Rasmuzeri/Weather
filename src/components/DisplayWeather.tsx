@@ -3,7 +3,6 @@ import { useQuery } from "@tanstack/react-query";
 import Axios from "axios";
 import { MainWrapper } from "./weather.module";
 import { WeatherContainer } from "../components/WeatherContainer";
-import { mainStylis } from "styled-components/dist/models/StyleSheetManager";
 import { WeatherImagePicker } from "../components/WeatherImagePicker";
 import { NewsContainer } from "./NewsContainer";
 

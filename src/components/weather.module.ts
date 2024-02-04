@@ -2,68 +2,85 @@ import styled from "styled-components";
 
 export const MainWrapper = styled.div`
     height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
-    .container {
-        background-color: rgba(255, 255, 255, 0.15);
-        border-radius: 12px;
-        padding: 2rem;
-        position: absolute;
-        box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
-        backdrop-filter:blur(10px);
-    }
-
-    #weatherContainer {
-        top: 25%;
-        left: 10%;
-    }
-
-    #newsContainer {
-        top: 25%;
-        right: 10%;
-        overflow: auto;
-        width: 500px;
-        height: 600px;
+    @media (max-width: 1200px) {
+        flex-direction: column;
     }
 
     p {
         font-size: 20px;
     }
 
+    a {
+        text-decoration: none;
+    }
+
+    a p {
+        font-size: 25px;
+        color: black;
+    }
+
+    .container {
+        margin: 15px 50px;
+        background-color: rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
+        backdrop-filter: blur(10px);
+    }
+
+    #weatherContainer {
+        width: 500px;
+        height: 600px;
+    }
+
+    #newsContainer {
+        width: 500px;
+        height: 600px;
+        overflow: auto;
+        scrollbar-color: black rgba(255, 255, 255, 0.1);
+    }
+
     .searchArea {
-        margin-top: 20px;
         display: flex;
         justify-content: center;
+        margin-top: 20px;
     }
 
     .textSearch {
-        border-radius: 5px;
-        background-color: rgba(255, 255, 255, 0.3);
         width: 40%;
         height: 20px;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
     }
 
     ::placeholder {
         color: black;
         opacity: 0.8;
-      }
+        font-size: 15px;
+    }
 
     .weatherArea {
         display: flex;
-        align-items: center;
         flex-direction: column;
+        align-items: center;
         margin: 30px 0;
     }
-
+    
     .bottomInfoArea {
-        background-color: rgba(255, 255, 255, 0.15);
-        font-family: "Josefin Sans", sans-serif;
         margin: 10px;
-        border-radius: 12px;
         padding: 10px;
+        background-color: rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        font-family: "Josefin Sans", sans-serif;
     }
 
-    .lowerInfo,
-    .upperInfo {
+    .upperInfo,
+    .lowerInfo {
         display: flex;
         align-items: center;
         margin: 0 20px;
@@ -72,37 +89,44 @@ export const MainWrapper = styled.div`
 
     .feelsLike,
     .visibility,
-    .wind {
-        display: flex;
-        align-items: center;
-        margin: 0 30px;
-        width: 50%;
-    }
-
+    .wind,
     .humidity {
         display: flex;
         align-items: center;
-        width: 55%;
+        margin: 0 30px;
     }
 
+    .humidity {
+        width: 65%;
+    }
+
+    .wind,
+    .feelsLike,
+    .visibility {
+        width: 50%;
+    }
 
     .windIcon,
     .visibilityIcon,
-    .feelsLikeIcon {
-        font-size: 2.5rem;
+    .feelsLikeIcon,
+    .humidityIcon {
         margin-right: 6px;
         margin-bottom: 5px;
+    }
+    
+    .feelsLikeIcon,
+    .visibilityIcon,
+    .windIcon {
+        font-size: 2.5rem;
     }
 
     .humidityIcon {
         font-size: 3rem;
     }
 
-    .searchCircle {
-        :hover {
-            cursor: pointer;
-            color: dimgray;
-        }
+    .searchCircle:hover {
+        cursor: pointer;
+        color: dimgray;
     }
 
     .searchIcon {
@@ -118,4 +142,4 @@ export const MainWrapper = styled.div`
     .bottomInfoDescription {
         margin: 0;
     }
-`
+`;

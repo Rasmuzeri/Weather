@@ -1,4 +1,3 @@
-import React from "react";
 import Axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 
@@ -23,7 +22,7 @@ export const NewsContainer = () => {
   );
 
   if (isLoading) {
-    return <h1>Ladataan</h1>;
+    return <h1>Ladataan sääuutisia palvelimelta...</h1>;
   }
 
   if (isError || !data) {
@@ -35,7 +34,7 @@ export const NewsContainer = () => {
       <h2>Sääuutisia Yleltä</h2>
       {data.map((n) => (
         <div key={n.title}>
-          <a href={n.link}>
+          <a href={n.link} target="_blank">
             <p>{n.title}</p>
           </a>
           <p>Julkaistu: {n.date}</p>
