@@ -84,7 +84,7 @@ export const WeatherContainer: React.FC<WeatherDataProps> = ({
                     <MdOutlineVisibility className="visibilityIcon"/>
                     <div className="visibilityInfo">
                         {visibility < 10000 
-                            ? <h1 className="bottomInfoValue">{Math.round(visibility/1000)}&nbsp;km&nbsp;&nbsp;&nbsp;&nbsp;</h1> // temporary fix
+                            ? <h1 className="bottomInfoValue">{Math.round(visibility/1000)}&nbsp;km</h1>
                             : <h1 className="bottomInfoValue">{'>'}{10}&nbsp;km</h1>}
                         <p className="bottomInfoDescription">Näkyvyys</p>
                     </div>

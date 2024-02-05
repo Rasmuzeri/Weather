@@ -96,16 +96,12 @@ export const MainWrapper = styled.div`
     .humidity {
         display: flex;
         align-items: center;
-        margin: 0 30px;
-    }
-
-    .humidity {
-        width: 65%;
     }
 
     .wind,
     .feelsLike,
-    .visibility {
+    .visibility,
+    humidity {
         width: 50%;
     }
 
@@ -124,7 +120,7 @@ export const MainWrapper = styled.div`
     }
 
     .humidityIcon {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     .searchCircle {
