@@ -15,28 +15,32 @@ Use the latest NPM
 
 ### Installation
 
-1. Get a free API key at https://openweathermap.org/api
+1. Get a free API key at https://openweathermap.org/api -- according to OpenWeatherMap, it can take "a couple of hours" for the key to start working
 2. Clone the repo
-   ```sh
-   git clone git@github.com:Rasmuzeri/weather.git
+   ```bash
+   git clone https://github.com/Rasmuzeri/weather.git
    ```
-3. Install NPM packages
+3. Cd to the root folder of the project and install the needed NPM packages
    ```sh
    npm install
    ```
-4. Enter your OpenWeatherMap API key in `DisplayWeather.tsx`
+4. Cd to 'server' folder and install headless Chrome for Puppeteer
+   ```sh
+   npx puppeteer browsers install chrome
+   ```
+5. Enter your OpenWeatherMap API key in `DisplayWeather.tsx`
    ```js
-   const APIkey: string = "ENTER YOUR API";
+   const APIkey: string = "ENTER YOUR API KEY";
    ```
-5. To start the backend, cd to 'server' folder and then
+6. To start the backend, make sure you are cd'd to 'server' folder and then
    ```sh
    npm start
    ```
-6. To start the frontend, cd to the root folder and then
+7. To start the frontend, open a separate terminal and cd to the root folder and then
    ```sh
    npm start
    ```
-7. The app will be available at http://localhost:3000/ 
+8. The app will be available at http://localhost:3000/ which can take over 30 seconds after starting the frontend
 
 
 <!-- ACKNOWLEDGMENTS -->
