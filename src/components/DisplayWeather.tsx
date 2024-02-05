@@ -23,7 +23,7 @@ interface WeatherDataProps {
 }
   
   export const DisplayWeather = () => {
-    const APIkey: string = "ENTER YOUR API";
+    const APIkey: string = "5a8d968bf8601a8a1fd6a1d655e89d36";
     const APIendpoint: string = "https://api.openweathermap.org/data/2.5/";
     const defaultCity: string = "Helsinki";
     const [city, setCity] = useState<string>(defaultCity);
