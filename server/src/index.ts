@@ -1,4 +1,4 @@
-import express, { Application, Request, Response } from "express";
+import express, { Application, Response } from "express";
 import cors from "cors";
 import puppeteer from "puppeteer";
 
@@ -46,7 +46,7 @@ const fetchData = async (): Promise<News[]> => {
 app.use(cors());
 app.use(express.static("client/build"));
 
-app.get("/api/data", async (req: Request, res: Response) => {
+app.get("/api/data", async (res: Response) => {
   try {
     const newsData = await fetchData();
     res.json(newsData);
